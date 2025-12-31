@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glory Gifts - Bhilwara</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+    /* --- GLOBAL STYLES --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* COLORS */
+    :root {
+        --primary: #2c3e50; /* Dark Blue */
+        --accent: #e67e22;  /* Orange */
+        --light: #fff;
+        --grey: #f4f4f4;
+    }
+
+    /* UTILITIES */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .section-padding { padding: 60px 0; }
+    .text-center { text-align: center; }
+    .btn {
+        display: inline-block;
+        background-color: var(--accent);
+        color: var(--light);
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+    }
+    .btn:hover { background-color: #d35400; transform: translateY(-3px); }
+
+    /* --- HEADER --- */
+    header {
+        background: var(--light);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+        color: var(--accent);
+        font-weight: bold;
+    }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-weight: 500; font-size: 0.9rem; color: #555; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* --- HERO SECTION --- */
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 80vh; /* Takes 80% of screen height */
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--light);
+        padding: 0 20px;
+    }
+    .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    .hero p {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        margin-bottom: 30px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- HOW IT WORKS (MINI STRIP) --- */
+    .how-it-works { background: var(--primary); color: var(--light); padding: 30px 0; }
+    .steps-flex { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
+    .step-item { flex: 1; min-width: 200px; }
+    .step-item span { font-size: 1.5rem; margin-right: 10px; }
+    .step-item strong { color: var(--accent); }
+
+    /* --- CATALOGUE --- */
+    .section-header { margin-bottom: 50px; }
+    .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    .category-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+    .category-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+    .image-frame { height: 220px; overflow: hidden; }
+    .image-frame img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .category-card:hover .image-frame img { transform: scale(1.1); }
+    .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-content h3 { margin-bottom: 10px; color: #333; }
+    .item-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+    .tag { background: #eee; font-size: 0.75rem; padding: 4px 10px; border-radius: 15px; color: #666; }
+    .card-link { margin-top: auto; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+
+    /* --- CORPORATE SECTION --- */
+    .corporate-bg { background-color: #f0f3f5; }
+    .corp-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+    .corp-text { flex: 1; min-width: 300px; }
+    .corp-form { flex: 1; min-width: 300px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .corp-text ul li { margin-bottom: 10px; display: flex; align-items: center; }
+    .corp-text ul li::before { content: "✔"; color: var(--accent); margin-right: 10px; }
+
+    /* FORM */
+    .form-group { margin-bottom: 15px; }
+    .form-group label { font-size: 0.9rem; margin-bottom: 5px; display: block; color: #666; }
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;
+    }
+    .submit-btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: 600; }
+    .submit-btn:hover { background: #34495e; }
+
+    /* --- ABOUT SECTION --- */
+    .about-flex { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+    .about-img { flex: 1; min-width: 300px; }
+    .about-img img { border-radius: 10px; box-shadow: 15px 15px 0 var(--accent); }
+    .about-text { flex: 1; min-width: 300px; }
+    .badge { background: var(--accent); color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* --- TESTIMONIALS --- */
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .review-card { background: #fff; padding: 25px; border-radius: 10px; border: 1px solid #eee; position: relative; }
+    .stars { color: #f1c40f; margin-top: 5px; }
+    .google-g { position: absolute; top: 20px; right: 20px; width: 20px; opacity: 0.5; }
+
+    /* --- FOOTER --- */
+    footer { background: var(--primary); color: #fff; padding: 50px 0 20px; text-align: center; }
+    .footer-content h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
+    .footer-links p { margin: 10px 0; opacity: 0.8; }
+    .copyright { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+    /* --- WHATSAPP FLOAT --- */
+    .whatsapp-float {
+        position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
+        background-color: #25d366; color: #fff; border-radius: 50px;
+        text-align: center; font-size: 30px; z-index: 1000;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3); animation: pulse 2s infinite;
+    }
+    .whatsapp-float img { width: 35px; height: 35px; }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* --- MOBILE OPTIMIZATION --- */
+    @media (max-width: 768px) {
+        .nav-links { display: none; } /* Hide nav links on mobile for cleaner look */
+        .hero { height: 60vh; }
+        .hero h1 { font-size: 2.2rem; }
+        .about-img img { box-shadow: 10px 10px 0 var(--accent); }
+        .corp-flex, .about-flex { flex-direction: column; }
+        .about-img { order: -1; } /* Image on top */
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">Glory Gifts</div>
+            <nav class="nav-links">
+                <a href="#collections">Collections</a>
+                <a href="#corporate">Bulk Orders</a>
+                <a href="#about">Our Story</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Unwrap Happiness with<br>Glory Gifts</h1>
+            <p>Bhilwara's trusted gifting partner since 1997. Personalized gifts, hampers, and wedding packing crafted with love.</p>
+            <a href="#collections" class="btn">Explore Collections</a>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container steps-flex">
+            <div class="step-item"><span>🔍</span> 1. <strong>Browse</strong> our catalogue</div>
+            <div class="step-item"><span>💬</span> 2. <strong>Message</strong> us on WhatsApp</div>
+            <div class="step-item"><span>🎁</span> 3. <strong>Get Delivered</strong> to doorstep</div>
+        </div>
+    </section>
+
+    <section id="collections" class="section-padding">
+        <div class="container">
+            <div class="text-center section-header">
+                <h2>Our Collections</h2>
+                <p>Everything you need, from small tokens to grand gestures.</p>
+            </div>
+
+            <div class="grid-container">
+                <div class="category-card">
+                    <div class="image-frame"><img src="https://images.unsplash.com/photo-1571216683438-e4b7852c0199?auto=format&fit=crop&w=500&q=60" alt="Personalized"></div>
+                    <div class="card-content">
+                        <h3>Personalized Lifestyle</h3>
+                        <div class="item-tags"><span class="tag">Mugs</span><span class="tag">T-Shirts</span><span class="tag">Cushions</span><span class="tag">Purses</span></div>
+                        <a href="https://wa.link/1pfz9n" class="card-link">Order Now →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="image-frame"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=500&q=60" alt="Frames"></div>
+                    <div class="card-content">
+                        <h3>Frames & Memories</h3>
+                        <div class="item-tags"><span class="tag">Wooden Engraved</span><span class="tag">Acrylic</span><span class="tag">Caricatures</span></div>
+                        <a href="https://wa.link/1pfz9n" class="card-link">Order Now →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="image-frame"><img src="https://images.unsplash.com/photo-1550920400-50b3887019f9?auto=format&fit=crop&w=500&q=60" alt="3D Gifts"></div>
+                    <div class="card-content">
+                        <h3>Unique 3D Gifts</h3>
+                        <div class="item-tags"><span class="tag">Shadow Box</span><span class="tag">LED Bottle</span><span class="tag">Lamps</span></div>
+                        <a href="https://wa.link/1pfz9n" class="card-link">Order Now →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="image-frame"><img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=500&q=60" alt="Wedding"></div>
+                    <div class="card-content">
+                        <h3>Marriage Packing</h3>
+                        <div class="item-tags"><span class="tag">Trousseau</span><span class="tag">Ring Platter</span><span class="tag">Trays</span></div>
+                        <a href="https://wa.link/1pfz9n" class="card-link">Order Now →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="image-frame"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=500&q=60" alt="Hampers"></div>
+                    <div class="card-content">
+                        <h3>Gift Hampers</h3>
+                        <div class="item-tags"><span class="tag">Chocolate Mix</span><span class="tag">Spa Kits</span><span class="tag">Corporate</span></div>
+                        <a href="https://wa.link/1pfz9n" class="card-link">Order Now →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="image-frame"><img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af57?auto=format&fit=crop&w=500&q=60" alt="Decor"></div>
+                    <div class="card-content">
+                        <h3>Party Decor</h3>
+                        <div class="item-tags"><span class="tag">Props</span><span class="tag">Banners</span><span class="tag">Toppers</span></div>
+                        <a href="https://wa.link/1pfz9n" class="card-link">Order Now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="corporate" class="section-padding corporate-bg">
+        <div class="container">
+            <div class="corp-flex">
+                <div class="corp-text">
+                    <h2>Corporate & Bulk Gifting</h2>
+                    <p>Looking for Diwali gifts, employee appreciation hampers, or wedding return gifts? We handle bulk orders with custom branding.</p>
+                    <ul>
+                        <li>Best Wholesale Rates in Bhilwara</li>
+                        <li>Custom Logo Branding</li>
+                        <li>On-Time Delivery Guarantee</li>
+                    </ul>
+                </div>
+                <div class="corp-form">
+                    <h3 style="margin-bottom:20px;">Get a Quote</h3>
+                    <form action="https://formsubmit.co/manandarak35635@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Corporate Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <select name="quantity">
+                                <option>10-50</option>
+                                <option>50-100</option>
+                                <option>100+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Requirement</label>
+                            <textarea name="message" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Request Callback</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-flex">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80" alt="Glory Gifts Shop">
+                </div>
+                <div class="about-text">
+                    <span class="badge">Serving Since 1997</span>
+                    <h2 style="margin: 15px 0;">The Glory Gifts Story</h2>
+                    <p>At <strong>Glory Gifts</strong>, we don't just sell products; we craft memories. For over 25 years, we have been Bhilwara's trusted destination for premium gifting.</p>
+                    <p>What started as a small passion has grown into a legacy. We believe that a gift is a feeling, which is why every package is wrapped with personal care. Trusted by thousands of happy customers.</p>
+                    <p style="margin-top:20px; font-weight:600;">- The Glory Gifts Team</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background:#fff;">
+        <div class="container">
+            <div class="text-center section-header">
+                <h2>Love from Bhilwara</h2>
+                <p>Rated 4.8/5 on Google Reviews</p>
+            </div>
+            <div class="review-grid">
+                <div class="review-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="google-g" alt="G">
+                    <h4>Rahul Sharma</h4>
+                    <div class="stars">★★★★★</div>
+                    <p style="margin-top:10px; font-style:italic; font-size:0.9rem;">"Been visiting Glory Gifts since I was a kid. The variety for personalized frames is unmatched in Bhilwara!"</p>
+                </div>
+                <div class="review-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="google-g" alt="G">
+                    <h4>Priya Maheshwari</h4>
+                    <div class="stars">★★★★★</div>
+                    <p style="margin-top:10px; font-style:italic; font-size:0.9rem;">"Best place for wedding packing! They wrapped our trousseau so elegantly. Highly recommended."</p>
+                </div>
+                <div class="review-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="google-g" alt="G">
+                    <h4>Amit Jain</h4>
+                    <div class="stars">★★★★★</div>
+                    <p style="margin-top:10px; font-style:italic; font-size:0.9rem;">"Professional service for corporate bulk orders. Delivered 50 hampers on time for our Diwali party."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <h3>Glory Gifts</h3>
+            <div class="footer-links">
+                <p>📍 Bhilwara, Rajasthan</p>
+                <p>📞 +91 98765 43210</p>
+                <p>📧 manandarak35635@gmail.com</p>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Glory Gifts. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.link/1pfz9n" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+</body>
+</html>
