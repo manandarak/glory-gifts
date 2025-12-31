@@ -25,6 +25,7 @@
         --accent: #e67e22;  /* Orange */
         --light: #fff;
         --grey: #f4f4f4;
+        --danger: #d32f2f; /* Red for Warning */
     }
 
     /* UTILITIES */
@@ -41,6 +42,25 @@
         box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
     }
     .btn:hover { background-color: #d35400; transform: translateY(-3px); }
+
+    /* --- ALERT WARNING BAR --- */
+    .alert-bar {
+        background-color: var(--danger);
+        color: #fff;
+        text-align: center;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1.5;
+        position: relative;
+        z-index: 1001;
+    }
+    .alert-bar strong {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #fff;
+    }
 
     /* --- HEADER --- */
     header {
@@ -71,7 +91,7 @@
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1920&q=80');
         background-size: cover;
         background-position: center;
-        height: 80vh; /* Takes 80% of screen height */
+        height: 80vh; 
         min-height: 500px;
         display: flex;
         align-items: center;
@@ -81,7 +101,7 @@
         padding: 0 20px;
     }
     .hero h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+        font-size: clamp(2.5rem, 5vw, 4rem);
         margin-bottom: 15px;
         line-height: 1.2;
     }
@@ -94,7 +114,7 @@
         margin-right: auto;
     }
 
-    /* --- HOW IT WORKS (MINI STRIP) --- */
+    /* --- HOW IT WORKS --- */
     .how-it-works { background: var(--primary); color: var(--light); padding: 30px 0; }
     .steps-flex { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
     .step-item { flex: 1; min-width: 200px; }
@@ -158,11 +178,39 @@
     .stars { color: #f1c40f; margin-top: 5px; }
     .google-g { position: absolute; top: 20px; right: 20px; width: 20px; opacity: 0.5; }
 
-    /* --- FOOTER --- */
-    footer { background: var(--primary); color: #fff; padding: 50px 0 20px; text-align: center; }
+    /* --- FOOTER (UPDATED) --- */
+    footer { background: var(--primary); color: #fff; padding: 50px 0 20px; }
+    
+    .footer-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    
+    .footer-info {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .footer-map {
+        flex: 1;
+        min-width: 300px;
+        height: 250px;
+    }
+    
+    .footer-map iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
     .footer-content h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
-    .footer-links p { margin: 10px 0; opacity: 0.8; }
-    .copyright { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+    .footer-links p { margin: 10px 0; opacity: 0.8; font-size: 1.1rem; }
+    .copyright { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; width: 100%; }
 
     /* --- WHATSAPP FLOAT --- */
     .whatsapp-float {
@@ -181,16 +229,21 @@
 
     /* --- MOBILE OPTIMIZATION --- */
     @media (max-width: 768px) {
-        .nav-links { display: none; } /* Hide nav links on mobile for cleaner look */
+        .nav-links { display: none; } 
         .hero { height: 60vh; }
         .hero h1 { font-size: 2.2rem; }
         .about-img img { box-shadow: 10px 10px 0 var(--accent); }
-        .corp-flex, .about-flex { flex-direction: column; }
-        .about-img { order: -1; } /* Image on top */
+        .corp-flex, .about-flex, .footer-flex { flex-direction: column; text-align: center; }
+        .about-img { order: -1; }
+        .footer-map { width: 100%; height: 200px; } /* Adjust map height for mobile */
     }
 </style>
 </head>
 <body>
+
+    <div class="alert-bar">
+        ⚠️ <strong>FRAUD WARNING:</strong> We have noticed fake websites using the name "Glory Gifts" to scam customers. Please be careful! We are <u>NOT</u> associated with them. Use only this official website or our WhatsApp number for orders.
+    </div>
 
     <header>
         <div class="container nav-flex">
@@ -229,7 +282,7 @@
 
             <div class="grid-container">
                 <div class="category-card">
-                    <div class="image-frame"><img src="https://www.google.com/maps/place/Glory+Gifts/@25.3441707,74.6369066,3a,75y,90t/data=!3m8!1e2!3m6!1swAZzkyEOjYVaj27cu3rQWBgsYX1aglu9uVoWEOGIRxCrTwtSrdOaVCDVg6XdrXe3!2e9!3e27!6s%2F%2Flh5.googleusercontent.com%2FwAZzkyEOjYVaj27cu3rQWBgsYX1aglu9uVoWEOGIRxCrTwtSrdOaVCDVg6XdrXe3%3Dw152-h86-k-no!7i4128!8i2322!4m13!1m2!2m1!1sglory+gifts!3m9!1s0x3968c24a7e6c7655:0xfeb53ce8474066f1!8m2!3d25.3441134!4d74.6369147!10e5!14m1!1BCgIgAQ!15sCgtnbG9yeSBnaWZ0c1oNIgtnbG9yeSBnaWZ0c5IBCWdpZnRfc2hvcOABAA!16s%2Fg%2F11ghfprjcw?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" alt="Personalized"></div>
+                    <div class="image-frame"><img src="https://www.sendbestgift.com/blog/wp-content/uploads/List-of-Occasion-When-Personalized-Gifts-Delivery-in-Pune-are-Helpful-to-Win-Heart.jpg" alt="Personalized"></div>
                     <div class="card-content">
                         <h3>Personalized Gifts</h3>
                         <div class="item-tags"><span class="tag">Mugs</span><span class="tag">T-Shirts</span><span class="tag">Cushions</span><span class="tag">Purses</span></div>
@@ -238,7 +291,7 @@
                 </div>
 
                 <div class="category-card">
-                    <div class="image-frame"><img src="https://www.google.com/maps/place/Glory+Gifts/@25.3441707,74.6369066,3a,75y,90t/data=!3m8!1e2!3m6!1swAZzkyEOjYVaj27cu3rQWBgsYX1aglu9uVoWEOGIRxCrTwtSrdOaVCDVg6XdrXe3!2e9!3e27!6s%2F%2Flh5.googleusercontent.com%2FwAZzkyEOjYVaj27cu3rQWBgsYX1aglu9uVoWEOGIRxCrTwtSrdOaVCDVg6XdrXe3%3Dw152-h86-k-no!7i4128!8i2322!4m13!1m2!2m1!1sglory+gifts!3m9!1s0x3968c24a7e6c7655:0xfeb53ce8474066f1!8m2!3d25.3441134!4d74.6369147!10e5!14m1!1BCgIgAQ!15sCgtnbG9yeSBnaWZ0c1oNIgtnbG9yeSBnaWZ0c5IBCWdpZnRfc2hvcOABAA!16s%2Fg%2F11ghfprjcw?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" alt="Frames"></div>
+                    <div class="image-frame"><img src="https://www.incrediblegifts.in/wp-content/uploads/2020/12/8x6Anniversary1-600x600.jpg" alt="Frames"></div>
                     <div class="card-content">
                         <h3>Frames & Memories</h3>
                         <div class="item-tags"><span class="tag">Wooden Engraved</span><span class="tag">Acrylic</span><span class="tag">Caricatures</span></div>
@@ -256,7 +309,7 @@
                 </div>
 
                 <div class="category-card">
-                    <div class="image-frame"><img src="https://www.google.com/maps/place/Glory+Gifts/@25.3441707,74.6369066,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipP2DQ8cWvisZTAdhrEL-tu6Xxu19wi5TLgJU1dX!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipP2DQ8cWvisZTAdhrEL-tu6Xxu19wi5TLgJU1dX%3Dw203-h269-k-no!7i720!8i956!4m13!1m2!2m1!1sglory+gifts!3m9!1s0x3968c24a7e6c7655:0xfeb53ce8474066f1!8m2!3d25.3441134!4d74.6369147!10e5!14m1!1BCgIgAQ!15sCgtnbG9yeSBnaWZ0c1oNIgtnbG9yeSBnaWZ0c5IBCWdpZnRfc2hvcOABAA!16s%2Fg%2F11ghfprjcw?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" alt="Wedding"></div>
+                    <div class="image-frame"><img src="https://mapp.co.in/wp-content/uploads/2023/05/blog-1.jpg" alt="Wedding"></div>
                     <div class="card-content">
                         <h3>Marriage Packing</h3>
                         <div class="item-tags"><span class="tag">Trousseau</span><span class="tag">Ring Platter</span><span class="tag">Trays</span></div>
@@ -380,14 +433,27 @@
 
     <footer id="contact">
         <div class="container footer-content">
-            <h3>Glory Gifts</h3>
-            <div class="footer-links">
-                <p>📍 Bhilwara, Rajasthan</p>
-                <p>📞 +91 7357824744</p>
-                <p>📧 manandarak35635@gmail.com</p>
+            <div class="footer-flex">
+                <div class="footer-info">
+                    <h3>Glory Gifts</h3>
+                    <div class="footer-links">
+                        <p>📍 Shop No. 1, Bhilwara, Rajasthan</p>
+                        <p>📞 +91 7357824744</p>
+                        <p>📧 manandarak35635@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-map">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Glory+Gifts,+Bhilwara,+Rajasthan&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
+            
             <div class="copyright">
-                &copy; 2026 Glory Gifts. All rights reserved.
+                © 2026 Glory Gifts. All rights reserved.
             </div>
         </div>
     </footer>
@@ -397,6 +463,4 @@
     </a>
 
 </body>
-
 </html>
-
